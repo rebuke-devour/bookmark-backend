@@ -36,6 +36,16 @@ const Default = mongoose.model("Default", defaultSchema)
 app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json())
+//====================//
+
+//=== Bookmark Model==//
+const BookmarkSchema = new mongoose.Schema({
+    title: String,
+    url: String,
+})
+
+const Bookmark = mongoose.model("Bookmark", BookmarkSchema)
+
 
 //////////////////////
 // Routes
