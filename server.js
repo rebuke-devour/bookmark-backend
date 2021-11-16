@@ -24,11 +24,11 @@ mongoose.connection
 ///////////////////////////
 // Schema and Model
 ///////////////////////////
-const defaultSchema = new mongoose.Schema ({
+const bookmarkSchema = new mongoose.Schema ({
     name: String,
 }, {timestamps: true})
 
-const Default = mongoose.model("Default", defaultSchema)
+const Bookmark = mongoose.model("Bookmark", bookmarkSchema)
 
 /////////////////////////
 // Middleware
@@ -56,7 +56,7 @@ app.get('/bookmark', async(req, res)=>{
 });
 
 //Create Bookmarks
-app.put('/bookmark', async (req, res)=>{
+app.post('/bookmark', async (req, res)=>{
     try {
         res.json(await Bookmark.create(req.body));
     } catch (error) {
@@ -76,7 +76,7 @@ app.put('/bookmark/:id', async (req, res)=>{
 });
 
 //Edit Bookmarks
-app.put('/bookmakrs/edit/:id', async (req, res)=>{
+app.put('/bookmark/edit/:id', async (req, res)=>{
     try {
         res.json(Bookmark.findByIdAndUpdate(req.params.id, req.body, { }))
     } catch {
@@ -101,9 +101,6 @@ app.get('/bookmark/:id', async (req, res)=>{
         res.status(400).json(error)
     }
 });
-
-
-
 
 
 
