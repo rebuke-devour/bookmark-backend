@@ -25,7 +25,8 @@ mongoose.connection
 // Schema and Model
 ///////////////////////////
 const bookmarkSchema = new mongoose.Schema ({
-    name: String,
+    title: String,
+    url: String,
 }, {timestamps: true})
 
 const Bookmark = mongoose.model("Bookmark", bookmarkSchema)
